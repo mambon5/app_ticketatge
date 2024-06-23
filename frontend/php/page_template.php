@@ -1,5 +1,8 @@
 <?php
-include("/var/www/ticket_webapp/frontend/php/form_templates.php");//contains html webpage templates to save code
+include("/var/www/app_ticketatge/php/connexion_base.php");//contains all passwords
+include("/var/www/app_ticketatge/php/get_elems.php");//contains function to extract db data
+
+include("/var/www/app_ticketatge/frontend/php/form_templates.php");//contains html webpage templates to save code
 
 // loading html templates
 // $ch = curl_init("http://ticket_app:80/frontend/php/template_head1.html");

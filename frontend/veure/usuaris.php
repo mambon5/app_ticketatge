@@ -1,9 +1,7 @@
 <?php
 
-include("/var/www/ticket_webapp/php/connexion_base.php");//contains all passwords
-include("/var/www/ticket_webapp/php/get_elems.php");//contains function to extract db data
 
-include("/var/www/ticket_webapp/frontend/php/page_template.php");//contains html webpage templates to save code
+include("/var/www/app_ticketatge/frontend/php/page_template.php");//contains html webpage templates to save code
 
 $usuaris = get_users();
 

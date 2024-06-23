@@ -1,6 +1,6 @@
 <?php
 
-include("/var/www/ticket_webapp/frontend/php/page_template.php");//contains html webpage templates to save code
+include("/var/www/app_ticketatge/frontend/php/page_template.php");//contains html webpage templates to save code
 
 //now print template parts:
 echo templ_header1("Ticketatge");

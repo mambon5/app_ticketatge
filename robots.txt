@@ -1,0 +1,9 @@
+User-agent: Mediapartners-Google 
+Disallow:
+
+User-agent: *
+Disallow: /w3images
+Disallow: /backend
+Disallow: /mysql
+Disallow: /php
+Disallow: *.php$

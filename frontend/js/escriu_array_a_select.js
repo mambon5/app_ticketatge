@@ -5,12 +5,12 @@
  */
 
 
-function escriu_profes() {
-        json_to_options(profes,"acronim","nom","nomprofes");
+function escriu_usuaris() {
+        json_to_options(usuaris,"id","nom","usuari");
     }
     
-function escriu_alumnes() {
-        json_to_options(alumnes,"acronim","nom","nomalumnes");
+function escriu_events() {
+        json_to_options(events,"id","nom","event");
 
     }
     

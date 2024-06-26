@@ -26,7 +26,6 @@ function print_table(array, columns,tableid,  header) {
     for( j=0; j<m; ++j) {
         rows =  rows + '<tr class="tabitem">';
         for( i=0; i<n; ++i){
-            console.log("columna "+ j+ " val: " +  array[j][columns[i]])
             rows = rows + '<td>' + array[j][columns[i]] + '</td>'
         }
         rows = rows + '</tr>';

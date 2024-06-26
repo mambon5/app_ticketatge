@@ -95,5 +95,5 @@ function deleteinvalid(element) {
 function emptyform(formId) {
   document.getElementById(formId).reset(); 
   showTab(0); // Display the current tab$
-  }
+}
   

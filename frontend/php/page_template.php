@@ -4,6 +4,7 @@ include("/var/www/app_ticketatge/php/get_elems.php");//contains function to extr
 
 include("/var/www/app_ticketatge/frontend/php/form_templates.php");//contains html webpage templates to save code
 
+// session_start();
 // loading html templates
 // $ch = curl_init("http://ticket_app:80/frontend/php/template_head1.html");
 // curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -82,12 +83,19 @@ function templ_header2($objecte) {
    
 
     </body>
+    
+    <script >
+        <!-- we save the type of object we have in javascript to use in modalbutton onclick -->
+        element = "'.$objecte.'"
+    </script>
     ';
     return $template_header;
 }
 
 
 $template_footer= '
+<script src="/frontend/js/list_json.js"></script>
+<script src="/frontend/js/escriu_array_a_select.js"></script>
 <script src="/frontend/js/modal_div.js"></script>
 </html>
 ';

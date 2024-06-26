@@ -60,7 +60,7 @@ function acronim($acro) {
 }
 
 function get_users() {     
-    $arr = array("nom", "telefon",
+    $arr = array("id","nom", "telefon",
      "email", "data_registre");
     $elements = get_elements($arr, "usuaris");
     return $elements;

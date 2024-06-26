@@ -13,7 +13,8 @@ echo templ_header2("usuaris");
       var usuaris=<?php  echo $usuaris ?>;
       print_table(usuaris,["nom","telefon","email","data_registre"] ,"taula_vistes", 
                           ["nom","telefon","email","data registre"])
-</script>
+      
+</script> 
 
 <?php 
 echo $template_footer

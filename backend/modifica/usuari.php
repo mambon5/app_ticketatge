@@ -11,10 +11,14 @@ $nom = mysqli_real_escape_string($conn, $nom);
 $email = $_POST['email'];
 $telefon = $_POST['telefon'];
 $tipusreg = $_POST['tipusreg'];
-echo "valor de tipusreg: " .$tipusreg;
+
+//variables per redireccio:
+$pagina_resultant = "/frontend/veure/usuaris.php";
+$etiqueta = "usuari";
 
 if($tipusreg == "nou") {
-    //farem una comprovació prèvia de que no s'ha enviat ja una classe amb 
+    global $message;
+    //farem una comprovació prèvia de que no s'ha enviat ja un objecte amb 
     //aquestes dades.
     $taula = "usuaris";
     $where = " WHERE "            
@@ -36,26 +40,28 @@ if($tipusreg == "nou") {
     }
     if( count($json) > 0) {
         //modified
-        $failmsg="error: Ja hi ha un usuari amb aquests paràmetres! Query: "; 
+        $failmsg="error: Ja hi ha un ".$etiqueta." amb aquests paràmetres!"; 
 //                . $sql. " <br>";
-        $failed=true;
-        exit($failmsg);
+        $message = $failmsg; 
     } else {   // ara sí, afegeix la usuària sino hi ha ja una usuària així:
         $sql = "INSERT INTO ". $taula." (nom, email, telefon)
        VALUES ('" . $nom . "', '" . $email .
                 "', '" . $telefon . "')";
 
-        $failmsg="<br>Error afegint linia a ".$taula.": Query: " . $sql . " " ;
-        $successmessage="<br>Linia afegida a ".$taula." correctament";
+        //$failmsg="Error afegint linia a ".$taula.": Query: " . $sql . " " ;
+        $failmsg="Error al afegir un nou ".$etiqueta ;
+        $successmessage= $etiqueta." afegit correctament";
 
         if ($conn->query($sql) === TRUE) {
         
-            echo $successmessage;
+            $message = $successmessage;
+            
           } else {
-              $error = "error";
-           exit($failmsg . $conn->error);
+            $message = $failmsg;            
+           
           }
     }
+    header("Location: ".$pagina_resultant."?result=".$message);
 }
 else{
     echo "<br> 

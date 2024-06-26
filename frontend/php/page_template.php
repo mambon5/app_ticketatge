@@ -12,9 +12,11 @@ include("/var/www/app_ticketatge/frontend/php/form_templates.php");//contains ht
 // $head1 = curl_exec($ch);
 // curl_close($ch);
 
-
+//mirem si aquesta pagina s'està carregant com a resultat d'una consulta backend:
+$result = $_GET['result'];
 
 function templ_header1($titol) {
+    global $result;
     $template_header = '
     <!DOCTYPE html>
     <html lang="ca">
@@ -28,6 +30,13 @@ function templ_header1($titol) {
 
     <script src="/frontend/js/print_table.js"></script>
     <script src="/frontend/js/slideformw3.js"></script>
+
+    <script >
+    resultat_modificacio = "'.$result.'"
+    if(resultat_modificacio != "") window.alert(resultat_modificacio);
+    </script>
+    
+
     <link rel="icon" type="image/x-icon" href="/w3images/favicon.png">
 
     </head>

@@ -97,3 +97,7 @@ function emptyform(formId) {
   showTab(0); // Display the current tab$
 }
   
+
+function set_ticket_type(id_tipus, valor, id_form) {
+  document.getElementById(id_tipus).value = valor;
+}

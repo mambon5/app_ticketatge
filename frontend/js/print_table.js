@@ -32,8 +32,6 @@ function print_table(array, columns,tableid,  header) {
     }
     
     document.getElementById(tableid).innerHTML = rows;
-  
-
 }
 
 function checkclasses(acro) {

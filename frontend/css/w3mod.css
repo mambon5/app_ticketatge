@@ -2018,6 +2018,8 @@ a {
   --intense:#a12d85;
   --darkest: #635063;
 
+  --accepeta: #75a346;
+  --cancela: #a3464e;
 }
 
 
@@ -2166,3 +2168,23 @@ table {
 	background-color: var(--light);
 }
 
+.elimina-ticket {
+	width:100%;
+}
+
+.nou-ticket, .elimina-ticket, .table-grid-buttons, .table-grid-buttons th, 
+.table-grid-buttons tr {
+	width: max(100%,200px);
+	height: 200px;
+
+}
+.nou-ticket {
+	background-color: var(--accepeta);
+}
+.elimina-ticket {
+	background-color: var(--cancela);
+}
+
+.table-grid-buttons td {
+	width: 50%;
+}

@@ -10,8 +10,8 @@
     background-color: #ffffff;
     margin: auto;
     /*font-family: Raleway;*/
-    padding: 40px;
-    width: 70%;
+    padding: 15px;
+    width: 90%;
     min-width: 300px;
   }
   
@@ -39,6 +39,7 @@
   .tab {
     display: none;
      font-size: 24px;
+     width:100%;
   }
   
   button, .button {

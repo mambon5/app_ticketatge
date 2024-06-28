@@ -4,6 +4,8 @@ function templ_addform($objecte) {
     global $form_events, $form_tickets, $form_usuaris;
     $accio = "";
 
+    $form_extra_style = "";
+
     if($objecte == "usuaris") {
         $formad = $form_usuaris;
         $accio = "/backend/modifica/usuari.php";
@@ -15,8 +17,11 @@ function templ_addform($objecte) {
     else if($objecte == "tickets"){
         $formad = $form_tickets;
         $accio = "/backend/modifica/ticket.php";
+        $form_extra_style = "display:none";
     }
     
+    
+
     $form ='
     <form id="regForm" action="'.$accio.'" method="post" onsubmit="return validateForm()"
         >
@@ -30,19 +35,18 @@ function templ_addform($objecte) {
 
         '. $formad .'
         
-        <div style="overflow:auto;">
-            <div style="float:right;">
+        <div style="overflow:auto;'.$form_extra_style.'">
+        <div style="float:right;">
             <button type="button" id="prevBtn" onclick="nextPrev(-1)"><i class="fa fa-arrow-left"></i> Anterior</button>
             <button type="button" id="nextBtn" onclick="nextPrev(1)">Següent</button>
-            </div>
+        </div>
         </div>
         <!-- Circles which indicates the steps of the form: -->
-        <div style="text-align:center;margin-top:40px;">
+        <div style="text-align:center;margin-top:40px;'.$form_extra_style.'">
             <span class="step"></span>
             <span class="step"></span>
         </div>
-    </form>
-    ';
+        </form>';
 
 
     return $form; 
@@ -108,29 +112,61 @@ $form_events = '
 
 $form_tickets = '
 
-       <p>  <label for="cars">usuari:</label> 
+       <p style="display:none">  <label  >usuari:</label> 
        <select name="usuari" id="usuari" onclick="deleteinvalid(this)">
            <option value="">tria usuari</option>
 
     </select></p>
-    <p>  <label for="cars">event:</label> 
+    <p style="display:none">  <label  >event:</label> 
             <select name="event" id="event" onclick="deleteinvalid(this)">
                 <option value="">tria event</option>
 
     </select></p>
 
-       <p>  <label for="cars">Tipus de ticket:</label> 
+       <p style="display:none">  <label >Tipus de ticket:</label> 
        <input name="tipus" id="tipus" type="number" placeholder="654773..." 
                required>
        </p> 
 
 
-    </div>
+    
 
-<div class="tab">
-<p>  <label >Comentari:</label> 
-<input type="text" name="comentari" id="comentari" 
-        placeholder="I moved to his place..."  
-        oninput="this.className = \'\'"></p>
-</div>
+    <!--grid amb els 4 butonets per clicar el concepte que es vol -->
+    
+    
+        <table class="table-grid-buttons">
+            <tr >
+                <td >
+                    <button type="button"  class="nou-ticket" 
+                    onclick="set_ticket_type(\'tipus\', 1)">
+                    birra</button>
+                </td>
+                <td>
+                <button type="button" class="elimina-ticket" 
+                    onclick="set_ticket_type(\'tipus\', -2)">
+                    cancela entrepà</button>
+                </td>
+            </tr>
+            <tr >
+                <td >
+                    <button type="button" class="nou-ticket" 
+                    onclick="set_ticket_type(\'tipus\', 2)">
+                    entrepà</button>
+                </td>
+                <td>
+                    <button type="button" class="elimina-ticket"
+                    onclick="set_ticket_type(\'tipus\', -2)" >
+                    cancela birra</button>
+                </td>
+            </tr>
+        </table>
+    
+      
+        <p style="display:none">  <label >Comentari:</label> 
+        <input type="text" name="comentari" id="comentari" 
+                placeholder="I moved to his place..."  
+                oninput="this.className = \'\'">
+                </p>
+                </div>
+
 ';
